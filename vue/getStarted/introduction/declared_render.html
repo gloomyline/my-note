@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    </head>
+    <body>
+    	<div id="app">
+			<span v-bind:title="message" >
+				put your mouse here to wait several secs to check the bind message here
+			</span>
+    	</div>
+
+		<script>
+			var app = new Vue({
+				el: '#app',
+				data: {
+					message: 'Hello Vue!' + 'Page loading on' + new Date()
+				}
+			})
+		</script>
+    </body>
+</html>

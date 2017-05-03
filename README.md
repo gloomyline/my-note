@@ -17,39 +17,39 @@
 
     a. object grammar
 
-        ```
-        <div v-bind:class="classObject"></div>
+    ```
+    <div v-bind:class="classObject"></div>
 
-        data: {
-          isActive: true,
-          error: null
-        },
-        computed: {
-          classObject: function () {
-            return {
-              active: this.isActive && !this.error,
-              'text-danger': this.error && this.error.type === 'fatal',
-            }
-          }
+    data: {
+      isActive: true,
+      error: null
+    },
+    computed: {
+      classObject: function () {
+        return {
+          active: this.isActive && !this.error,
+          'text-danger': this.error && this.error.type === 'fatal',
         }
-        ```
+      }
+    }
+    ```
     b. array grammar
     
-        ```
-        <div v-bind:class="[activeClass, errorClass]">
+    ```
+    <div v-bind:class="[activeClass, errorClass]">
 
-        data: {
-          activeClass: 'active',
-          errorClass: 'text-danger'
-        }
+    data: {
+      activeClass: 'active',
+      errorClass: 'text-danger'
+    }
 
-        渲染为:
-        <div class="active text-danger"></div>
-        ```
+    渲染为:
+    <div class="active text-danger"></div>
+    ```
     c. used on component
-        ```
-        当你在一个定制的组件上用到 class 属性的时候，这些类将被添加到根元素上面，这个元素上已经存在当你在一个定制的组件上用到 class 属性的时候，这些类将被添加到根元素上面，这个元素上已经存在的类不会被覆盖。的类不会被覆盖。
-        ```
+    ```
+    当你在一个定制的组件上用到 class 属性的时候，这些类将被添加到根元素上面，这个元素上已经存在当你在一个定制的组件上用到 class 属性的时候，这些类将被添加到根元素上面，这个元素上已经存在的类不会被覆盖。的类不会被覆盖。
+    ```
 3. conditional render
 4. list render
 

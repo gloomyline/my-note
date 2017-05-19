@@ -10,14 +10,14 @@ for example, i create the foler in the "C:\MongoDB\data\db"
 ```shell
 C:\MongoDB>mkdir data\db
 C:\MongoDB>cd data\db
-C:\MongoDB\data\db
+C:\MongoDB\data\db>
 ```
 
 4. create the log folder to store the log
 ```
 C:\MongoDB>mkdir data\log
 C:\MongoDB>cd data\log
-C:\MongoDB\data\log
+C:\MongoDB\data\log>
 ```
 
 5. install MongoDB into service in System

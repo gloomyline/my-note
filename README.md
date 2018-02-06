@@ -53,6 +53,8 @@
 3. conditional render
 4. list render
 
+### Add Javascript Folders to record javascript learning notes (- 2018/02/06)
+
 ### essays (- 2017/03/17)
 1. 注意在 JavaScript 中对象和数组是引用类型，指向同一个内存空间
 

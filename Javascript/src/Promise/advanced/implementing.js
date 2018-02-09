@@ -1,6 +1,6 @@
 /**
  * @Date:   2018-02-08T13:59:17+08:00
- * @Last modified time: 2018-02-08T17:59:01+08:00
+ * @Last modified time: 2018-02-11T10:51:48+08:00
  */
 'use strict';
 
@@ -67,6 +67,7 @@ function Promise(fn) {
   this._value = null;
   this._deferreds = null;
   if (fn === noop) return;
+  console.log(11, this)
   doResolve(fn, this);
 }
 Promise._onHandle = null;
@@ -74,6 +75,7 @@ Promise._onReject = null;
 Promise._noop = noop;
 
 Promise.prototype.then = function(onFulfilled, onRejected) {
+  console.log(31, this)
   if (this.constructor !== Promise) {
     return safeThen(this, onFulfilled, onRejected);
   }
@@ -89,7 +91,9 @@ function safeThen(self, onFulfilled, onRejected) {
     handle(self, new Handler(onFulfilled, onRejected, res));
   });
 }
+
 function handle(self, deferred) {
+  console.log(32, self)
   while (self._state === 3) {
     self = self._value;
   }
@@ -114,6 +118,7 @@ function handle(self, deferred) {
 }
 
 function handleResolved(self, deferred) {
+  console.log(44, self)
   asap(function() {
     var cb = self._state === 1 ? deferred.onFulfilled : deferred.onRejected;
     if (cb === null) {
@@ -133,6 +138,7 @@ function handleResolved(self, deferred) {
   });
 }
 function resolve(self, newValue) {
+  console.log(42, self)
   // Promise Resolution Procedure: https://github.com/promises-aplus/promises-spec#the-promise-resolution-procedure
   if (newValue === self) {
     return reject(
@@ -140,11 +146,13 @@ function resolve(self, newValue) {
       new TypeError('A promise cannot be resolved with itself.')
     );
   }
+  console.log(422, newValue)
   if (
     newValue &&
     (typeof newValue === 'object' || typeof newValue === 'function')
   ) {
     var then = getThen(newValue);
+    console.log(423, then)
     if (then === IS_ERROR) {
       return reject(self, LAST_ERROR);
     }
@@ -175,7 +183,9 @@ function reject(self, newValue) {
   finale(self);
 }
 function finale(self) {
+  console.log(43, self)
   if (self._deferredState === 1) {
+    console.log(44)
     handle(self, self._deferreds);
     self._deferreds = null;
   }
@@ -200,8 +210,10 @@ function Handler(onFulfilled, onRejected, promise){
  * Makes no guarantees about asynchrony.
  */
 function doResolve(fn, promise) {
+  console.log(12, promise)
   var done = false;
   var res = tryCallTwo(fn, function (value) {
+    console.log(41, promise)
     if (done) return;
     done = true;
     resolve(promise, value);

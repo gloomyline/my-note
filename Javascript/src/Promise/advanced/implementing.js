@@ -1,6 +1,10 @@
 /**
  * @Date:   2018-02-08T13:59:17+08:00
+<<<<<<< HEAD
  * @Last modified time: 2018-02-11T10:51:48+08:00
+=======
+ * @Last modified time: 2018-02-09T17:31:08+08:00
+>>>>>>> c8de8b733c9d89b1552af3aed9d378235dfeb74f
  */
 'use strict';
 

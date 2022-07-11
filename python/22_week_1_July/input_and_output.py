@@ -78,3 +78,5 @@ print('-' * 40)
 for _ in range(1, 11):
   print(repr(_).rjust(2), repr(_ ** 2).rjust(3), repr(_ ** 3).rjust(4), end=' ')
   print('\n')
+
+# 2. 
